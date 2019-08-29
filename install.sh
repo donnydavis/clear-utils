@@ -12,7 +12,9 @@ sudo guestmount -a $WORKING_DIR/cl-openstack.img -m /dev/sda2 $TMP_DIR
 sudo cp openstack-config $TMP_DIR/usr/bin/
 sudo chmod +x $TMP_DIR/usr/bin/openstack-config
 sudo cp ucd-openstack.service $TMP_DIR/etc/systemd/system/ucd-openstack.service
-sudo ln -s $TMP_DIR/etc/systemd/system/ucd-openstack.service $TMP_DIR/etc/systemd/system/multi-user.target.wants/ucd-openstack.service
+cat << EOF | sudo chroot $TMP_DIR 
+systemctl enable ucd-openstack.service
+EOF
 sudo guestunmount $TMP_DIR
 echo "Scripts injected to image"
 

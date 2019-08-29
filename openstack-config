@@ -36,3 +36,4 @@ if [ -n "$CONFIG_DRIVE_LABEL" ]; then
     /usr/bin/ucd --openstack-config-drive "${BLOCKDEV}"
 else
 echo "config drive not found"
+fi
