@@ -1,7 +1,7 @@
 #/bin/bash
 WORKING_DIR=cl-openstack
 TMP_DIR=/tmp/guestmount
-rm -rf $WORKING_DIR
+rm -rf $WORKING_DIR $TMP_DIR
 mkdir -p $WORKING_DIR
 echo "Downloading Image"
 curl -o $WORKING_DIR/cl-openstack.img.xz https://download.clearlinux.org/current/clear-$(curl https://download.clearlinux.org/latest)-cloudguest.img.xz
